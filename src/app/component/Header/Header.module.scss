@@ -10,7 +10,7 @@
     background-color: $header-background-color;
     border-bottom: solid 1px $header-border-bottom-color;
 
-    >.logo-box {
+    >.logo-overflow {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -47,7 +47,7 @@
         align-items: center;
         border-bottom: none;
 
-        >.logo-box {
+        >.logo-overflow {
             width: 80px;
             display: block;
             margin: 0;

@@ -5,21 +5,21 @@ import { FC, ReactNode } from 'react'
 import styles from './Header.module.scss'
 
 type HeaderProps = {
-    logoSrc: StaticImageData,
+    appLogo: StaticImageData,
     children?: ReactNode,
 }
 
 const Header: FC<HeaderProps> = (
     {
-        logoSrc,
+        appLogo,
         children
     }) => {
     return (
         <header className={styles.header}>
-            <div className={styles["logo-box"]}>
+            <div className={styles["logo-overflow"]}>
                 <Image
                     className={styles.logo}
-                    src={logoSrc}
+                    src={appLogo}
                     priority
                     alt={'dont loaded'} />
             </div>

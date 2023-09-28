@@ -3,26 +3,27 @@
 import Button from './component/Button'
 import Footer from './component/Footer'
 import Header from './component/Header'
-import appLogoSrc from '@/app/img/sfxdx-logo.svg'
+import Elipse from './component/Elipse'
+import Loader from './component/Loader/Loader';
+
 import styles from './page.module.scss'
 
-import facebookLogoSrc from '@/app/img/facebook-logo.svg'
-import twiterLogoSrc from '@/app/img/twiter-logo.svg'
-import youtubeLogoSrc from '@/app/img/youtube-logo.svg'
-import instLogoSrc from '@/app/img/inst-logo.svg'
-import metamaskLogoSrc from '@/app/img/metamask-logo.svg'
-import connectlogoSrc from '@/app/img/connect-logo.svg'
+import appLogo from '@/app/img/sfxdx-logo.svg'
+import facebookLogo from '@/app/img/facebook-logo.svg'
+import twiterLogo from '@/app/img/twiter-logo.svg'
+import youtubeLogo from '@/app/img/youtube-logo.svg'
+import instLogo from '@/app/img/inst-logo.svg'
+import metamaskLogo from '@/app/img/metamask-logo.svg'
+import connectLogo from '@/app/img/connect-logo.svg'
 
 import { link } from '@/app/component/Links'
 import { contact } from '@/app/component/Contacts'
-import Elipse from './component/Elipse'
 
 import { useSelector } from "react-redux";
 import { connectWallet } from '@/app/store/redusers/accountAddress/asyncActions/connectWallet';
 import { RootState, useAppDispatch } from '@/app/store/index';
 import { accountAddressSlice } from './store/redusers/accountAddress';
 import { useMemo, useEffect } from 'react';
-import Loader from './component/Loader/Loader';
 
 export default function App() {
   const dispatch = useAppDispatch()
@@ -67,10 +68,10 @@ export default function App() {
   const shortAddressWallet = useMemo(() => getShortAddressWallet(), [addressWallet])
 
   const contacts = [
-    { src: facebookLogoSrc },
-    { src: twiterLogoSrc },
-    { src: youtubeLogoSrc },
-    { src: instLogoSrc }
+    { src: facebookLogo },
+    { src: twiterLogo },
+    { src: youtubeLogo },
+    { src: instLogo }
   ] as Array<contact>
 
   const links = [
@@ -87,14 +88,14 @@ export default function App() {
 
   return (
     <div className={styles.wrapper}>
-      <Header logoSrc={appLogoSrc}>
+      <Header appLogo={appLogo}>
         <Button onClick={connectUserWallet}
-          metamaskLogoSrc={metamaskLogoSrc}
-          connectlogoSrc={connectlogoSrc}>
+          leftLogo={metamaskLogo}
+          rightLogo={connectLogo}>
           {
             isConnectingWallet ?
               <Loader></Loader> :
-              <div> { shortAddressWallet || 'Connect Wallet' }</div>
+              <div> {shortAddressWallet || 'Connect Wallet'}</div>
           }
         </Button>
       </Header>
@@ -134,7 +135,7 @@ export default function App() {
       </main>
 
       <Footer
-        logoSrc={appLogoSrc}
+        appLogo={appLogo}
         contacts={contacts}
         links={links}
         BottomText={footerText} />

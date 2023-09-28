@@ -6,30 +6,30 @@ import { useMemo, useState, useLayoutEffect } from 'react'
 
 type ButtonProps = {
     children?: ReactNode,
-    onClick: MouseEventHandler<HTMLButtonElement>,
-    metamaskLogoSrc: StaticImageData,
-    connectlogoSrc: StaticImageData
+    leftLogo: StaticImageData,
+    rightLogo: StaticImageData,
+    onClick: MouseEventHandler<HTMLButtonElement>
 }
 
 const Button: FC<ButtonProps> = (
     {
         children,
+        leftLogo,
+        rightLogo,
         onClick,
-        metamaskLogoSrc,
-        connectlogoSrc
     }) => {
 
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
-    const handleSize = () => {
-        setWindowSize({
-            width: window.innerWidth,
-            height: window.innerHeight
-        });
-    };
     useLayoutEffect(() => {
-        handleSize()
+        const handleSize = () => {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        };
 
+        handleSize()
         window.addEventListener("resize", handleSize);
         return () => window.removeEventListener("resize", handleSize);
     }, [])
@@ -40,12 +40,12 @@ const Button: FC<ButtonProps> = (
             <div className={styles.content}>
                 <Image
                     className={styles.ico}
-                    src={metamaskLogoSrc}
+                    src={leftLogo}
                     alt="Not loaded" />
                 {children}
                 <Image
                     className={styles.ico}
-                    src={connectlogoSrc}
+                    src={rightLogo}
                     alt="Not loaded" />
             </div>
         )

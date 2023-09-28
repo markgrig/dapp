@@ -6,7 +6,7 @@ import Contacts, { contact } from '../Contacts'
 
 
 type FooterProps = {
-    logoSrc: StaticImageData,
+    appLogo: StaticImageData,
     links: Array<link>,
     contacts: Array<contact>,
     BottomText: string
@@ -14,7 +14,7 @@ type FooterProps = {
 
 const Footer: FC<FooterProps> = (
     {
-        logoSrc,
+        appLogo,
         links,
         contacts,
         BottomText
@@ -25,10 +25,10 @@ const Footer: FC<FooterProps> = (
                 {Links.length !== 0 &&
                     <Links elements={links}></Links>
                 }
-                <div className={styles['logo-box']}>
+                <div className={styles['logo-overflow']}>
                     <Image
                         className={styles.logo}
-                        src={logoSrc}
+                        src={appLogo}
                         priority
                         alt={'dont loaded'} />
                 </div>

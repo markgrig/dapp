@@ -21,7 +21,7 @@
             margin: 10px 0;
         }
 
-        >.logo-box {
+        >.logo-overflow {
             flex-grow: 1;
 
             >.logo {
@@ -57,7 +57,7 @@
             align-items: center;
             height: auto;
 
-            >.logo-box {
+            >.logo-overflow {
                 position: absolute;
                 width: 100%;
                 top: 40px;
