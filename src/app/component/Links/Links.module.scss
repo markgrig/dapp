@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilroy:wght@500&display=swap');
+
+.links {
+  >li {
+    font-family: 'Intel';
+    font-weight: 500px;
+    font-size: 16px;
+    color: rgba(103, 103, 103, 1);
+    padding-left: 70px;
+    padding-bottom: 10px;
+    list-style-type: none;
+
+    &:hover {
+      opacity: 1;
+      color: rgba(53, 53, 53, 1);
+      cursor: pointer;
+    }
+
+    &:visited {
+      opacity: 1;
+      color: rgba(103, 103, 103, 1);
+      cursor: pointer;
+    }
+
+    &:active {
+      opacity: 1;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width:700px) {
+  .links {
+    padding-left: 0px;
+
+    >li {
+      font-size: 14px;
+      padding-left: 0px;
+      text-align: center;
+    }
+  }
+}

@@ -9,14 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.7.2",
+    "@metamask/detect-provider": "^2.0.0",
+    "@metamask/providers": "^13.0.0",
+    "@reduxjs/toolkit": "^1.9.6",
+    "ethers": "^6.7.1",
+    "framer-motion": "^10.16.4",
+    "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "react-redux": "^8.1.2",
+    "react-transition-group": "^4.4.5",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
+    "sass": "^1.68.0",
+    "uuid": "^9.0.1",
+    "vercel": "^32.3.1"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
-    "@types/react-dom": "latest"
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-transition-group": "^4.4.6",
+    "@types/uuid": "^9.0.4",
+    "eslint": "8.50.0",
+    "eslint-config-next": "13.5.3",
+    "typescript": "latest"
   }
 }
