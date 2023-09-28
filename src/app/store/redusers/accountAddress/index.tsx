@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Eip1193Provider, BrowserProvider } from "ethers";
-import { connectWallet } from "./asuncActions/connectWallet";
+import { connectWallet } from "./asyncActions/connectWallet";
 
 declare global {
   interface Window {
@@ -14,8 +14,8 @@ const initialState = {
   address: "",
 };
 
-export const web3ProviderSlice = createSlice({
-  name: "web3Provider",
+export const accountAddressSlice = createSlice({
+  name: "accountAddress",
   initialState,
   reducers: {
     setAddress(state, action) {
@@ -39,4 +39,4 @@ export const web3ProviderSlice = createSlice({
   },
 });
 
-export default web3ProviderSlice.reducer;
+export default accountAddressSlice.reducer;

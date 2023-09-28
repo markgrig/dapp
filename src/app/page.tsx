@@ -18,17 +18,17 @@ import { contact } from '@/app/component/Contacts'
 import Elipse from './component/Elipse'
 
 import { useSelector } from "react-redux";
-import { connectWallet } from '@/app/store/redusers/web3Provider/asuncActions/connectWallet';
+import { connectWallet } from '@/app/store/redusers/accountAddress/asyncActions/connectWallet';
 import { RootState, useAppDispatch } from '@/app/store/index';
-import { web3ProviderSlice } from './store/redusers/web3Provider';
+import { accountAddressSlice } from './store/redusers/accountAddress';
 import { useMemo, useEffect } from 'react';
 import Loader from './component/Loader/Loader';
 
 export default function App() {
   const dispatch = useAppDispatch()
-  const addressWallet = useSelector((state: RootState) => state.web3Provider.address)
-  const isConnectingWallet = useSelector((state: RootState) => state.web3Provider.isConnecting)
-  const { setAddress } = web3ProviderSlice.actions
+  const addressWallet = useSelector((state: RootState) => state.accountAddress.address)
+  const isConnectingWallet = useSelector((state: RootState) => state.accountAddress.isConnecting)
+  const { setAddress } = accountAddressSlice.actions
 
   useEffect(() => {
     const handleAccountsChanged = (a: Array<string>) => {

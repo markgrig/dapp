@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ethers } from "ethers"
 
 export const connectWallet = createAsyncThunk(
-    'web3Provider/connectWallet',
+    'accountAddress/connectWallet',
     async (_, thunkAPI) => {
         try {
             if (!window.ethereum) {

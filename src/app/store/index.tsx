@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import web3ProviderReducer from './redusers/web3Provider'
+import accountAddressReducer from './redusers/accountAddress'
 import { useDispatch } from 'react-redux'
 
 const rootReducer = combineReducers({
-    web3Provider: web3ProviderReducer
+    accountAddress: accountAddressReducer
 })
 
 export const store = configureStore({
