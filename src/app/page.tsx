@@ -94,7 +94,7 @@ export default function App() {
           {
             isConnectingWallet ?
               <Loader></Loader> :
-              shortAddressWallet || 'Connect Wallet'
+              <div> { shortAddressWallet || 'Connect Wallet' }</div>
           }
         </Button>
       </Header>
