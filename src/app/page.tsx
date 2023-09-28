@@ -99,12 +99,10 @@ export default function App() {
           }
         </Button>
       </Header>
-      <main className={styles.content}>
-      </main>
+      <main className={styles.content}></main>
       <Background
         firstColor={'rgba(178, 241, 222, 1)'}
-        secondColor={'rgba(58, 201, 34, 0.7)'}>
-      </Background>
+        secondColor={'rgba(58, 201, 34, 0.7)'} />
       <Footer
         appLogo={appLogo}
         contacts={contacts}
