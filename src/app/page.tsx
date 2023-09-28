@@ -50,6 +50,8 @@ export default function App() {
   }, [])
 
   function getShortAddressWallet() {
+    if (!addressWallet) return ""
+
     const leftSlice = 9
     const rightSlice = 4
     const len = addressWallet.length
