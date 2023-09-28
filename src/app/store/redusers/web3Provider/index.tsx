@@ -26,7 +26,7 @@ export const web3ProviderSlice = createSlice({
     builder
       .addCase(connectWallet.fulfilled, (state, action) => {
         state.isConnecting = false;
-        state.address = action.payload;
+        state.address = action.payload as string;
       })
       .addCase(connectWallet.pending, (state) => {
         state.isConnecting = true;
