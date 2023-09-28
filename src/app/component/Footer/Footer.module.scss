@@ -11,25 +11,23 @@
 
     >.items {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         height: 120px;
+        box-sizing: border-box;
+        width: 100%;
 
         >div {
             box-sizing: border-box;
-            min-width: 25%;
+            width: 200px;
             display: block;
             margin: 10px 0;
         }
 
-        >.logo-overflow {
-            flex-grow: 1;
-
-            >.logo {
-                height: auto;
-                width: $logo-width;
-                display: block;
-                margin: 0 auto;
-            }
+        .logo {
+            height: auto;
+            width: $logo-width;
+            display: block;
+            margin: 0 auto;
         }
     }
 

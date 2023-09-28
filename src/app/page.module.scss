@@ -4,17 +4,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
 
-.content {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  >.elipse-wrapper{
-    width: 45vw;
-    margin: 10px;
-    position: relative;
+  >.content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

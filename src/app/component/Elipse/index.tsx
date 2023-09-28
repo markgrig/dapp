@@ -21,7 +21,7 @@ const Elipse: FC<ElipseProps> = ({
 }) => {
 
     const y = getRundomNumber(50);
-    const x = getRundomNumber(100);
+    const x = getRundomNumber(300);
     const time = Math.abs(getRundomNumber(30));
 
     function getRundomNumber(N: number) {

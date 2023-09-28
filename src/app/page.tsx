@@ -3,8 +3,8 @@
 import Button from './component/Button'
 import Footer from './component/Footer'
 import Header from './component/Header'
-import Elipse from './component/Elipse'
 import Loader from './component/Loader/Loader';
+import Background from './component/Background';
 
 import styles from './page.module.scss'
 
@@ -100,40 +100,11 @@ export default function App() {
         </Button>
       </Header>
       <main className={styles.content}>
-        <div className={styles['elipse-wrapper']}>
-          <Elipse
-            color={'rgba(178, 241, 222, 1)'}
-            rotateX={-22}
-            rotateY={-30}
-            bottom={20}
-            left={50} />
-        </div>
-        <div className={styles['elipse-wrapper']}>
-          <Elipse
-            color={'rgba(58, 201, 34, 0.7)'}
-            rotateX={202}
-            rotateY={30}
-            bottom={20}
-            left={25} />
-        </div>
-        <div className={styles['elipse-wrapper']}>
-          <Elipse
-            color={'rgba(58, 201, 34, 0.7)'}
-            rotateX={22}
-            rotateY={-30}
-            bottom={-100}
-            left={50} />
-        </div>
-        <div className={styles['elipse-wrapper']}>
-          <Elipse
-            color={'rgba(178, 241, 222, 1)'}
-            rotateX={202}
-            rotateY={-30}
-            bottom={-100}
-            left={25} />
-        </div>
       </main>
-
+      <Background
+        firstColor={'rgba(178, 241, 222, 1)'}
+        secondColor={'rgba(58, 201, 34, 0.7)'}>
+      </Background>
       <Footer
         appLogo={appLogo}
         contacts={contacts}

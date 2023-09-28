@@ -11,10 +11,9 @@
     border-bottom: solid 1px $header-border-bottom-color;
 
     >.logo-overflow {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: $logo-width;
+        display: block;
+        margin: auto;
 
         >.logo {
             width: $logo-width;
