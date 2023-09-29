@@ -25,7 +25,7 @@ const Footer: FC<FooterProps> = (
                 {Links.length !== 0 &&
                     <Links elements={links}></Links>
                 }
-                <div>
+                <div className={styles['logo-overflow']}>
                     <Image
                         className={styles.logo}
                         src={appLogo}
