@@ -16,7 +16,7 @@
         box-sizing: border-box;
         width: 100%;
 
-        >div {
+        >.logo-overflow {
             box-sizing: border-box;
             width: 200px;
             display: block;
@@ -55,7 +55,7 @@
             align-items: center;
             height: auto;
 
-            >div {
+            >.logo-overflow {
                 position: absolute;
                 width: 100%;
                 top: 40px;
