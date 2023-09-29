@@ -1,4 +1,4 @@
-**Application to connect to one of the Testnet networks with metamask accounts.**
+**Application for connect metamask account to Testnet networks.**
 
 
 *Url:* [https://markgrig-dapp.vercel.app]
