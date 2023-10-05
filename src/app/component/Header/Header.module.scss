@@ -4,18 +4,23 @@
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 0 20px;
     height: $header-height;
     background-color: $header-background-color;
     border-bottom: solid 1px $header-border-bottom-color;
 
     >.logo-overflow {
         width: $logo-width;
+        height: $header-height;
         display: block;
         margin: auto;
+        line-height: $header-height;
 
         >.logo {
             width: $logo-width;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
             height: auto;
         }
     }
