@@ -24,6 +24,7 @@ import { connectWallet } from '@/app/store/redusers/accountAddress/asyncActions/
 import { RootState, useAppDispatch } from '@/app/store/index';
 import { accountAddressSlice } from './store/redusers/accountAddress';
 import { useMemo, useEffect } from 'react';
+import getShortString from './utils/getShortString';
 
 export default function App() {
   const dispatch = useAppDispatch()
@@ -50,22 +51,7 @@ export default function App() {
     }
   }, [])
 
-  function getShortAddressWallet() {
-    if (!addressWallet) return ""
-
-    const leftSlice = 9
-    const rightSlice = 4
-    const len = addressWallet.length
-
-    if (len > leftSlice + rightSlice) {
-      const left = addressWallet.slice(0, leftSlice)
-      const right = addressWallet.slice(len - rightSlice - 1, len - 1)
-      return `${left}...${right}`
-    }
-    return addressWallet
-  }
-
-  const shortAddressWallet = useMemo(() => getShortAddressWallet(), [addressWallet])
+  const shortAddressWallet = useMemo(() => getShortString(addressWallet, 9, 4), [addressWallet])
 
   const contacts = [
     { src: facebookLogo },
