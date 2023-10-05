@@ -1,0 +1,48 @@
+@import './varibles.scss';
+
+.background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(9, 35, 38, 0.3);
+
+    >.modal {
+        position: absolute;
+        width: $modal-width;
+        height: $modal-height;
+        left: calc(50vw - $modal-width/2);
+        top: calc(50vh - $modal-height/2);
+
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 16px;
+        padding: 40px;
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        >.head {
+           font-family: 'Gilroy-Bold', sans-serif;
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        >.children {
+            font-family: 'Gilroy-Regular', sans-serif;
+            font-size: 16px;
+            line-height: 20px;
+            flex-grow: 1 1 auto;
+        } 
+
+        >.cross {
+            position: absolute;
+            width: 24px;
+            height: auto;
+            right: 20px;
+            top: 20px;
+        }
+    }
+}

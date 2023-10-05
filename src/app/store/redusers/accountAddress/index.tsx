@@ -10,7 +10,12 @@ declare global {
 
 const initialState = {
   isConnecting: false,
+  isValidNetwork: false,
   error: "",
+  message: {
+    head: "",
+    text: ""
+  },
   address: "",
 };
 
@@ -20,6 +25,13 @@ export const accountAddressSlice = createSlice({
   reducers: {
     setAddress(state, action) {
       state.address = action.payload;
+    },
+    setMessage(state, action) {
+      const {head, text} = action.payload
+      state.message ={
+        head: head,
+        text: text
+      }
     },
   },
   extraReducers: (builder) => {
