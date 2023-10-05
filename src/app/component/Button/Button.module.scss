@@ -21,7 +21,7 @@
 
     >.content{
         display:flex;
-        justify-content:center;
+        justify-content: space-around;
         align-items:center;
 
         >.ico{
@@ -36,12 +36,15 @@
 @media (max-width:700px) {
     .button {
         width: 177px;
-        padding: 10px 12px;
+        padding: 10px 0px;
         height: 38px;
         border-radius: 20px;
         font-size: 12px;
         line-height: 16px;
         background-color: white;
         color: rgba(8, 216, 153, 1);
+    }
+    >.ico{
+        margin: 0;
     }
 }

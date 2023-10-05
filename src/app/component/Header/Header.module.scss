@@ -42,11 +42,11 @@
 @media (max-width:700px) {
     .header {
         background-color: rgba(#000000, 0);
-        padding: 38px;
+        padding: 38px 20px;
         height: 70px;
         display: flex;
         padding: 38px 10px;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         border-bottom: none;
 
