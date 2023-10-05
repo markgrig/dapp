@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Intel:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gilroy:wght@500&display=swap');
 @import './varibles.scss';
 
 .footer {
@@ -36,7 +37,7 @@
         display: flex;
         margin: auto;
 
-        font-family: 'Intel';
+        font-family: 'Inter';
         font-weight: 500px;
         font-size: 14px;
         color: rgba(149, 149, 150, 1);
@@ -45,9 +46,9 @@
 
 @media (max-width:700px) {
     .footer {
-        height: min-content;
-        padding-bottom: 20px;
-        padding-top: 100px;
+        height: 356px;
+        padding-bottom: 80px;
+        padding-top: 130px;
         position: relative;
 
         >.items {
@@ -64,6 +65,10 @@
                     width: 120px;
                 }
             }
+        }
+
+        >.bottom-text {
+            font-family: 'Gilroy';
         }
     }
 }
