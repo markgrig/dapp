@@ -40,7 +40,7 @@ const Background: FC<ContactsProps> = ({
           color={firstColor}
           rotateX={-22}
           rotateY={-30}
-          bottom={25}
+          bottom={0}
           left={25} />
       </div>
       <div className={styles['elipse-wrapper']}>
@@ -48,7 +48,7 @@ const Background: FC<ContactsProps> = ({
           color={secondColor}
           rotateX={202}
           rotateY={30}
-          bottom={25}
+          bottom={0}
           left={25} />
       </div>
       <div className={styles['elipse-wrapper']}>
@@ -56,7 +56,7 @@ const Background: FC<ContactsProps> = ({
           color={secondColor}
           rotateX={202}
           rotateY={-30}
-          bottom={25}
+          bottom={30}
           left={15} />
       </div>
       <div className={styles['elipse-wrapper']}>
@@ -64,8 +64,8 @@ const Background: FC<ContactsProps> = ({
           color={firstColor}
           rotateX={22}
           rotateY={-30}
-          bottom={25}
-          left={35} />
+          bottom={30}
+          left={25} />
       </div>
     </motion.div>
   )
