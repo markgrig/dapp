@@ -5,27 +5,17 @@ import Footer from './component/Footer'
 import Header from './component/Header'
 import Loader from './component/Loader/Loader';
 import Background from './component/Background';
+import Modal from './component/Modal/Modal';
 
 import styles from './page.module.scss'
-
-import appLogo from '@/app/img/sfxdx-logo.svg'
-import facebookLogo from '@/app/img/facebook-logo.svg'
-import twiterLogo from '@/app/img/twiter-logo.svg'
-import youtubeLogo from '@/app/img/youtube-logo.svg'
-import instLogo from '@/app/img/inst-logo.svg'
-import metamaskLogo from '@/app/img/metamask-logo.svg'
-import connectLogo from '@/app/img/connect-logo.svg'
-
-import { link } from '@/app/component/Links'
-import { contact } from '@/app/component/Contacts'
+import * as CONSTANT from '@/app/constant'
 
 import { useSelector } from "react-redux";
+import { useMemo, useEffect } from 'react';
 import { connectWallet } from '@/app/store/redusers/accountAddress/asyncActions/connectWallet';
 import { RootState, useAppDispatch } from '@/app/store/index';
 import { accountAddressSlice } from './store/redusers/accountAddress';
-import { useMemo, useEffect } from 'react';
 import getShortString from './utils/getShortString';
-import Modal from './component/Modal/Modal';
 
 export default function App() {
   const dispatch = useAppDispatch()
@@ -33,77 +23,39 @@ export default function App() {
   const modalWindowMessage = useSelector((state: RootState) => state.accountAddress.message)
   const isConnectingWallet = useSelector((state: RootState) => state.accountAddress.isConnecting)
 
-  const { setAddress, setMessage } = accountAddressSlice.actions
+  const { handleAccountsChanged, handleChainChanged, setMessage } = accountAddressSlice.actions
 
   useEffect(() => {
-    const handleAccountsChanged = (a: Array<string>) => {
-      if (a[0]) { dispatch(setAddress(a[0])) } else {
-        dispatch(setAddress(""))
-        dispatch(setMessage(
-          {
-            head: "Disconect",
-            text: "User disconected."
-          }
-        ))
-      }
-    }
-    const handleChainChanged = (a: string) => {
-      if (a !== '0x5') {
-        dispatch(setAddress(""))
-        dispatch(setMessage({
-          head: "Wrong network",
-          text: "Wrong network. Select Goerli network."
-        }))
-      }
-    }
-
     if (window.ethereum) {
-      window.ethereum.on('accountsChanged', handleAccountsChanged)
-      window.ethereum.on('chainChanged', handleChainChanged)
-      window.ethereum.on('disconnect', () => console.log(123))
+      window.ethereum.on('accountsChanged', (e) => dispatch(handleAccountsChanged(e)))
+      window.ethereum.on('chainChanged', (e) => dispatch(handleChainChanged(e)))
     }
-
     return () => {
       if (window.ethereum) {
-        window.ethereum.removeListener('accountsChanged', handleAccountsChanged)
-        window.ethereum.removeListener('chainChanged', handleAccountsChanged)
+        window.ethereum.on('accountsChanged', (e) => dispatch(handleAccountsChanged(e)))
+        window.ethereum.on('chainChanged', (e) => dispatch(handleChainChanged(e)))
       }
     }
   }, [])
 
   const shortAddressWallet = useMemo(() => getShortString(addressWallet, 9, 4), [addressWallet])
-  const existAccount = useMemo(() => addressWallet ? true : false as boolean, [addressWallet])
-
-  const contacts = [
-    { src: facebookLogo },
-    { src: twiterLogo },
-    { src: youtubeLogo },
-    { src: instLogo }
-  ] as Array<contact>
-
-  const links = [
-    { text: "Privacy Policy" },
-    { text: "Terms & Conditions" },
-    { text: "Cookie Policy" }
-  ] as Array<link>
-
-  const footerText = "©2022 All rights reserved. Powered by Atla"
+  const existWallet = useMemo(() => addressWallet ? true : false as boolean, [addressWallet])
 
   function connectUserWallet() {
     dispatch(connectWallet())
   }
 
-  function clickModalButton() {
+  function exitModal() {
     dispatch(setMessage(""))
   }
 
   return (
     <div className={styles.wrapper}>
-      <Header appLogo={appLogo}>
+      <Header appLogo={CONSTANT.logos.app}>
         <ConnectButton onClick={connectUserWallet}
-          leftLogo={metamaskLogo}
-          rightLogo={connectLogo}
-          isSuccess={existAccount}>
+          leftLogo={CONSTANT.logos.metamask}
+          rightLogo={CONSTANT.logos.connect}
+          isSuccess={existWallet}>
           {
             isConnectingWallet ?
               <Loader></Loader> :
@@ -113,7 +65,8 @@ export default function App() {
         <Modal
           headText={modalWindowMessage.head}
           buttonText='Okey'
-          onClick={clickModalButton}
+          onClickButton={exitModal}
+          onClickCross={exitModal}
         >
           {modalWindowMessage.text}
         </Modal>
@@ -123,10 +76,10 @@ export default function App() {
         firstColor={'rgba(178, 241, 222, 1)'}
         secondColor={'rgba(58, 201, 34, 0.5)'} />
       <Footer
-        appLogo={appLogo}
-        contacts={contacts}
-        links={links}
-        BottomText={footerText} />
+        appLogo={CONSTANT.logos.app}
+        contacts={CONSTANT.contactsLogos}
+        links={CONSTANT.footerLinks}
+        BottomText={CONSTANT.footerText} />
     </div>
   )
 }

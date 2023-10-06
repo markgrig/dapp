@@ -10,7 +10,6 @@ declare global {
 
 const initialState = {
   isConnecting: false,
-  isValidNetwork: false,
   error: "",
   message: {
     head: "",
@@ -27,12 +26,33 @@ export const accountAddressSlice = createSlice({
       state.address = action.payload;
     },
     setMessage(state, action) {
-      const {head, text} = action.payload
-      state.message ={
+      const { head, text } = action.payload
+      state.message = {
         head: head,
         text: text
       }
     },
+    handleAccountsChanged(state, action) {
+      const accounts = action.payload
+      if (accounts[0]) { state.address = accounts[0] } else {
+        state.address = ""
+        state.message = {
+          head: "Disconect",
+          text: "User disconected."
+        }
+
+      }
+    },
+    handleChainChanged(state, action) {
+      const chain = action.payload
+      if (chain !== '0x5') {
+        state.address = ""
+        state.message = {
+          head: "Wrong network",
+          text: "Wrong network. Select Goerli network."
+        }
+      }
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -52,3 +72,4 @@ export const accountAddressSlice = createSlice({
 });
 
 export default accountAddressSlice.reducer;
+

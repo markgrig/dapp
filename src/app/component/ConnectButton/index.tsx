@@ -20,7 +20,7 @@ const ConnectButton: FC<ButtonProps> = (
         onClick,
         isSuccess
     }) => {
-    const buttonClassName = useMemo(()=>isSuccess? `${styles.button} ${styles['--success']}`:styles.button,[isSuccess])
+    const buttonClassName = useMemo(() => isSuccess ? `${styles.button} ${styles['--success']}` : styles.button, [isSuccess])
 
     return (
         <button className={buttonClassName}

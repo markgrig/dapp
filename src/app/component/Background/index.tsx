@@ -1,6 +1,6 @@
 import Elipse from "../Elipse";
 import styles from "./Background.module.scss";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { motion } from 'framer-motion'
 
 type ContactsProps = {

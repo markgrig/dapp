@@ -8,7 +8,8 @@ type ButtonProps = {
     headText: string,
     children: ReactNode,
     buttonText: string,
-    onClick: MouseEventHandler<HTMLButtonElement>,
+    onClickButton: MouseEventHandler<HTMLButtonElement>,
+    onClickCross: MouseEventHandler<HTMLElement>,
 }
 
 const Modal: FC<ButtonProps> = (
@@ -16,7 +17,8 @@ const Modal: FC<ButtonProps> = (
         headText,
         children,
         buttonText,
-        onClick
+        onClickButton,
+        onClickCross
     }
 ) => {
     const existChildren = useMemo(() => children ? true : false, [children])
@@ -31,9 +33,13 @@ const Modal: FC<ButtonProps> = (
                     <div className={styles.children}>
                         {children}
                     </div>
-                    <Image src={crossLogo} className={styles.cross} alt="Not loaded" />
+                    <Image
+                        src={crossLogo}
+                        className={styles.cross}
+                        alt="Not loaded"
+                        onClick={onClickCross} />
                     <Button
-                        onClick={onClick}>
+                        onClick={onClickButton}>
                         {buttonText}
                     </Button>
                 </div>
