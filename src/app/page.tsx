@@ -32,8 +32,8 @@ export default function App() {
     }
     return () => {
       if (window.ethereum) {
-        window.ethereum.on('accountsChanged', (e) => dispatch(handleAccountsChanged(e)))
-        window.ethereum.on('chainChanged', (e) => dispatch(handleChainChanged(e)))
+        window.ethereum.removeListener('accountsChanged', (e) => dispatch(handleAccountsChanged(e)))
+        window.ethereum.removeListener('chainChanged', (e) => dispatch(handleChainChanged(e)))
       }
     }
   }, [])
