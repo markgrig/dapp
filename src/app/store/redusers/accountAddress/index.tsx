@@ -49,7 +49,7 @@ export const accountAddressSlice = createSlice({
         state.address = ""
         state.message = {
           head: "Wrong network",
-          text: "Wrong network. Select Goerli network."
+          text: "Select Goerli network."
         }
       }
     }
